@@ -44,7 +44,7 @@ public class App {
 	    BreadthFirstSearch BFS = new BreadthFirstSearch(graph, 0);
 	    BFS.printSearch();
 	    
-	    Bipartite BP = new Bipartite(graph);
+	    TwoColorable BP = new TwoColorable(graph);
 	    return graph; 
 	}
 

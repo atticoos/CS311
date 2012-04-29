@@ -8,8 +8,8 @@ import java.util.List;
  * @author ajwhite
  */
 public class Graph {
-	private int V, E;
-	private List<Integer>[] adj;
+	private int V, E; //Vertices, Edges
+	private List<Integer>[] adj; // adjacency list - [u][v1, v2,...,vn] (u has an edge to to [v...vn])
 	
 	public Graph (int V){
 		this.V = V;
@@ -22,7 +22,9 @@ public class Graph {
 		}
 	}
 	
+	// number of nodes
 	public int V() { return V; }
+	// number of edges
 	public int E() { return E; }
 	
 	/**
@@ -33,9 +35,12 @@ public class Graph {
 	}
 
 	
+	/**
+	 * Adds an edge between node u and v by adding v to the ArrayList mapped by u
+	 * Increase the number of edges
+	 */
 	public void addEdge(int u, int v){
 		adj[u].add(v);
-		adj[v].add(u); // undirected graph
 		E++;
 	}
 	
