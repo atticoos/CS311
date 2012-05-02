@@ -82,14 +82,14 @@ public class App {
 		boolean verify = false;
 		
 		if (args.length == 0){
-			filename = "largegraph3.txt";
+			filename = "smallgraph.txt";
 			path = "/Users/ajwhite/Desktop/";
 			//System.err.println("Please enter a graph file");
 			//return;
 		} else {
 			path = "/courses/cs300/cs311/cs311/311_ProG1_INPUT/";
 			filename = args[0];
-			if (args.length > 1 && args[1] == "verify"){
+			if (args.length > 1 && args[2].equals("verify")){
 				verify = true;
 			}
 		}

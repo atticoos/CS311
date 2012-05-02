@@ -18,9 +18,7 @@ public class TwoColorable {
 
 	/**
 	 * The cycle of the graph causing it to be uncolorable
-	 * Created when u,v are in the same partition
-	 * 
-	 * @author ajwhite
+	 * Created when u,v are in the same partition, generates the substructure
 	 */
 	class Cycle {
 		private int u;
@@ -45,13 +43,14 @@ public class TwoColorable {
 				ancestry.push(t);
 			}
 			
-			t = v;
+			
 			// scan through v's ancestry
+			// if u,v have a common ancestor, we have reached our substructure
+			// remove v's uncommon ancestors to leave a remaining substructure
+			t = v;
 			while((t=parent[t]) != null){
 				for (int i=0; i<ancestry.size(); i++){
-					// if u,v have a common ancestor, we have reached our substructure
 					if (t == ancestry.get(t)){
-						// remove v's uncommon ancestors 
 						for (int j=0; j<i; j++){
 							ancestry.pop();
 						}
@@ -159,7 +158,6 @@ public class TwoColorable {
 			for(Integer n : cycle.substructure()){
 				output.append(String.format("%s,%s\n", n+1, getColor(partition[n])));
 			}
-			System.out.println("SIZE: " + cycle.substructure().size());
 		}
 		return output.toString();
 	}
